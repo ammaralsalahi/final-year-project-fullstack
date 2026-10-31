@@ -11,26 +11,25 @@ Taqsit consists of a Flutter mobile application for customers and a Laravel-base
 ### Customer Mobile Application
 
 <p align="center">
-  <img src="home.png" width="220" alt="Home Screen"/>
   <img src="prod.png" width="220" alt="Products Screen"/>
   <img src="product2.png" width="220" alt="Product Details"/>
   <img src="homeskleton.png" width="220" alt="Product Details"/>
   <img src="onbording.png" width="220" alt="Product Details"/>
-  <img src="trans.png" width="220" alt="Product Details"/>
-  <img src="trans2.png" width="220" alt="Product Details"/>
+  <img src="login.png" width="220" alt="Product Details"/>
+  
 </p>
 
 ### Installment Management
 
 <p align="center">
-  <img src="screenshots/installment.png" width="220" alt="Installment Details"/>
-  <img src="screenshots/transactions.png" width="220" alt="Transactions"/>
+ <img src="trans.png" width="220" alt="Product Details"/>
+  <img src="trans2.png" width="220" alt="Product Details"/>
 </p>
 
 ### Management Dashboards
 
 <p align="center">
-  <img src="screenshots/dashboard.png" width="700" alt="Management Dashboard"/>
+  <img src="home.png" width="220" alt="Home Screen"/>
 </p>
 
 ---
