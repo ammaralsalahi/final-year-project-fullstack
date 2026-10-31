@@ -1,43 +1,169 @@
-# 💳 مشروع التقسيط (Taqsit Project)
+# Taqsit – Smart Installment Management System
 
-منصة متكاملة لإدارة وعرض عمليات الدفع والبيع بالتقسيط، تربط بين العميل، التاجر، والبنك لتقديم نظام تقسيط سلس وآمن.
+A full-stack installment management platform designed to connect customers, merchants, and banks through an integrated digital purchasing and payment solution.
 
----
-
-## 🌟 مميزات النظام والواجهات
-
-### 📲 1. تطبيق الجوال - العميل (Mobile App)
-* **تصفح المنتجات والخدمات:** عرض المنتجات المتاحة للتقسيط وحساب قيمة الأقساط.
-* **تقديم طلبات التقسيط:** رفع الطلبات بسهولة واختيار خطة الدفع المناسبة.
-* **جدول الأقساط:** متابعة الأقساط المدفوعة والمتبقية والإشعارات الخاصة بمواعيد السداد.
-
-### 🏢 2. لوحة التاجر (Merchant Portal) - *ضمن الباك إند*
-* **إدارة المنتجات:** إضافة المنتجات والخدمات المتاحة للتقسيط وتحديد أسعارها.
-* **متابعة المبيعات:** عرض طلبات التقسيط المقدمة من العملاء الخاصة بالمتجر.
-* **تقارير المستحقات:** متابعة المبالغ المحولة من البنك والعملاء.
-
-### 🏦 3. بوابة البنك (Bank Portal) - *ضمن الباك إند*
-* **دراسة الطلبات:** المراجعة والتحقق من الجدارة المالية للعميل وتحديد الموافقة أو الرفض.
-* **إدارة التمويل:** إدارة خطط التقسيط ونسب الفوائد/الرسوم والتسهيلات الائتمانية.
-* **العمليات المالية:** تتبع التحويلات بين البنك والتاجر وتوثيق السداد.
-
-### 🛡️ 4. لوحة الإدارة العامة (Admin Panel) - *ضمن الباك إند*
-* إدارة المستخدمين (عملاء، تجار، موظفي البنك).
-* التحكم في الإعدادات العامة للنظام والصلاحيات.
+Taqsit consists of a Flutter mobile application for customers and a Laravel-based backend that provides RESTful APIs and management portals for merchants, banks, and administrators.
 
 ---
 
-## 🛠️ التقنيات المستخدمة (Tech Stack)
+## 📱 Application Screenshots
 
-* **Front-end:** [Flutter](https://flutter.dev/) (Dart) - تطبيق الهاتف المحمول.
-* **Back-end:** [PHP](https://www.php.net/) / [Laravel](https://laravel.com/) - الـ RESTful APIs ولوحات التحكم.
-* **Database:** MySQL.
+### Customer Mobile Application
+
+<p align="center">
+  <img src="screenshots/home.png" width="220" alt="Home Screen"/>
+  <img src="screenshots/products.png" width="220" alt="Products Screen"/>
+  <img src="screenshots/product_details.png" width="220" alt="Product Details"/>
+</p>
+
+### Installment Management
+
+<p align="center">
+  <img src="screenshots/installment.png" width="220" alt="Installment Details"/>
+  <img src="screenshots/transactions.png" width="220" alt="Transactions"/>
+</p>
+
+### Management Dashboards
+
+<p align="center">
+  <img src="screenshots/dashboard.png" width="700" alt="Management Dashboard"/>
+</p>
 
 ---
 
-## 📁 هيكل المستودع (Repository Structure)
+## ✨ Key Features
+
+### 1. Customer Mobile Application
+- Browse available products and services.
+- View product details and installment options.
+- Submit installment purchase requests.
+- Track installment schedules and payment status.
+- Monitor remaining balances and upcoming payments.
+- Receive payment-related notifications.
+
+### 2. Merchant Portal
+- Manage products and services.
+- Set product prices and installment availability.
+- Review customer installment requests.
+- Monitor sales and payment records.
+- Track amounts due and received.
+
+### 3. Bank Portal
+- Review customer installment applications.
+- Evaluate customer financial eligibility.
+- Approve or reject installment requests.
+- Manage installment plans and financing settings.
+- Monitor financial transactions and repayments.
+
+### 4. Admin Dashboard
+- Manage customers, merchants, and bank staff.
+- Manage system users and permissions.
+- Control general platform settings.
+- Oversee platform operations.
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technologies |
+|---|---|
+| Mobile Frontend | Flutter, Dart |
+| Backend | PHP, Laravel |
+| Database | MySQL |
+| API Architecture | RESTful APIs |
+| Version Control | Git, GitHub |
+
+---
+
+## 📂 Repository Structure
 
 ```text
 myproject_taqsit/
-├── taqditapp-frontend-3/     # تطبيق الجوال (Flutter)
-└── taqsit-backend-main/      # الباك إند (Laravel APIs + لوحات البنك والتاجر والإدارة)
+│
+├── taqditapp-frontend-3/
+│   └── Flutter Customer Mobile App
+│
+├── taqsit-backend-main/
+│   ├── Laravel Backend
+│   ├── RESTful APIs
+│   ├── Merchant Management
+│   ├── Bank Management
+│   └── Admin Management
+│
+└── screenshots/
+    ├── home.png
+    ├── products.png
+    ├── product_details.png
+    ├── installment.png
+    ├── transactions.png
+    └── dashboard.png
+```
+
+---
+
+## ⚙️ Requirements
+
+- Flutter SDK
+- Dart SDK
+- PHP
+- Composer
+- MySQL
+- Laravel-compatible environment
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/ammaralsalahi/taqsit-backend.git
+```
+
+### 2. Run the Flutter Application
+
+```bash
+cd taqditapp-frontend-3
+flutter pub get
+flutter run
+```
+
+### 3. Set Up the Laravel Backend
+
+```bash
+cd taqsit-backend-main
+composer install
+```
+
+Configure your database credentials in the `.env` file, then run:
+
+```bash
+php artisan key:generate
+php artisan migrate
+php artisan serve
+```
+
+---
+
+## 🎯 Project Goals
+
+- Demonstrate full-stack mobile application development.
+- Integrate Flutter applications with Laravel RESTful APIs.
+- Implement multi-role management workflows.
+- Design an integrated installment purchasing experience.
+- Practice database management and backend integration.
+
+---
+
+## 👨‍💻 Developer
+
+**Ammar Yaser Alsalahi**
+
+IT Graduate | Flutter Developer | Full-Stack Mobile Development
+
+- GitHub: [ammaralsalahi](https://github.com/ammaralsalahi)
+- LinkedIn: [Ammar Yaser Alsalahi](https://www.linkedin.com/in/ammar-yaser-alsalahi-1ab8bb379/)
+
+---
+
+*Developed as a practical software project to demonstrate mobile application development, backend integration, and multi-role system design.*
