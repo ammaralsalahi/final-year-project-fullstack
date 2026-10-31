@@ -117,7 +117,7 @@ myproject_taqsit/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/ammaralsalahi/taqsit-backend.git
+git clone https://github.com/ammaralsalahi/final-year-project-fullstack.git
 ```
 
 ### 2. Run the Flutter Application
