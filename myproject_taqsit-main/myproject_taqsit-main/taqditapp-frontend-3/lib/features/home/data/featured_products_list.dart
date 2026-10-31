@@ -1,0 +1,58 @@
+import 'model/product_model.dart';
+
+final List<ProductModel> featuredProducts = [
+  ProductModel(
+    id: "11",
+    name: "قميص رجالي",
+    price: 15000,
+    discount: "10%",
+    image: "assets/images/products/image15.png",
+    description: "",
+    quantity: 30,
+  ),
+  ProductModel(
+    id: "12",
+    name: "بنطال جنز",
+    price: 20000,
+    discount: "5%",
+    image: "assets/images/products/image12.png",
+    description: "",
+    quantity: 20,
+  ),
+  ProductModel(
+    id: "13",
+    name: "حذاء رياضي",
+    price: 17000,
+    discount: "15%",
+    image: "assets/images/products/image13.png",
+    description: "",
+    quantity: 10,
+  ),
+  ProductModel(
+    id: "14",
+    name: "جاكيت رجالي",
+    price: 23000,
+    discount: "15%",
+    image: "assets/images/products/image16.png",
+    description: "",
+    quantity: 12,
+  ),
+  ProductModel(
+    id: "15",
+    name: "جاكيت رجالي",
+    price: 22000,
+    discount: "15%",
+    image: "assets/images/products/image17.png",
+    description: "",
+    quantity: 30,
+  ),
+  ProductModel(
+    id: "16",
+    name: "قميص رجالي",
+    price: 12000,
+    discount: "15%",
+    image: "assets/images/products/image18.png",
+    description: "",
+    quantity: 2,
+  ),
+];

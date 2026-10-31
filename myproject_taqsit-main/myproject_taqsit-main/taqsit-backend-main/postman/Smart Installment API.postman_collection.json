@@ -1,0 +1,569 @@
+{
+  "info": {
+    "_postman_id": "4f1dc8ed-6ae2-4240-a494-d870de792b77",
+    "name": "Smart Installment API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "54382590",
+    "_collection_link": "https://go.postman.co/collection/54382590-4f1dc8ed-6ae2-4240-a494-d870de792b77?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "01- Authentication",
+      "item": [
+        {
+          "name": "Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var jsonData = pm.response.json();\r",
+                  "if (jsonData.access_token) { // لاحظ هنا استخدمنا access_token كما ظهر في ردك السابق\r",
+                  "    pm.environment.set(\"token\", jsonData.access_token);\r",
+                  "}"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"phone_number\": \"772555666\",\r\n    \"password\": \"fouad99\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "03- Customer/Products",
+      "item": [
+        {
+          "name": "Get All Products",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/products",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "products"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "04- Installments",
+      "item": [
+        {
+          "name": "Pay Installment",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"installment_id\": 12,\r\n    \"user_id\": 4\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/installments/pay",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "installments",
+                "pay"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get My Installments",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/installments/4",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "installments",
+                "4"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Purchase Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"product_id\": 5,\r\n    \"user_id\": 4,\r\n    \"installment_plan\": 6,\r\n    \"down_payment\": 10000.00\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/purchase",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "purchase"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Merchant Web 0-2",
+      "item": [
+        {
+          "name": "Dashboard",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/installments/{{userId}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "installments",
+                "{{userId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "View_all_Products",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url_web}}/merchant/products",
+              "host": [
+                "{{base_url_web}}"
+              ],
+              "path": [
+                "merchant",
+                "products"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "ADD_New_Product",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "product_name",
+                  "value": "iPhone 15 Pro",
+                  "type": "text",
+                  "uuid": "d161e7ba-114f-4505-91cb-c69863e3211d"
+                },
+                {
+                  "key": "description",
+                  "value": "مساحة 256 جيجا، لون تيتانيوم",
+                  "type": "text",
+                  "uuid": "a32768d9-a073-44ce-aaf4-373c66f23024"
+                },
+                {
+                  "key": "price",
+                  "value": "1200.00",
+                  "type": "text",
+                  "uuid": "44317440-3e7f-4385-a30f-d8c19a87130b"
+                },
+                {
+                  "key": "allow_installment",
+                  "value": "1",
+                  "type": "text",
+                  "uuid": "0bc92fcf-57f5-4810-b2fb-f40a3cfb28ff"
+                },
+                {
+                  "key": "image",
+                  "type": "file",
+                  "uuid": "81146711-a46a-4f94-949b-b878e189528f",
+                  "src": "/C:/Users/ammar alsalahi/Desktop/final_Year_project/SmartInstallment/public/storage/products/iphone.jpg"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url_web}}/merchant/products/store",
+              "host": [
+                "{{base_url_web}}"
+              ],
+              "path": [
+                "merchant",
+                "products",
+                "store"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url_web}}/merchant/products/delete/{id}",
+              "host": [
+                "{{base_url_web}}"
+              ],
+              "path": [
+                "merchant",
+                "products",
+                "delete",
+                "{id}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Admin/Bank Web 0-5",
+      "item": [
+        {
+          "name": "Bank Dashboard",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url_web}}/admin/dashboard",
+              "host": [
+                "{{base_url_web}}"
+              ],
+              "path": [
+                "admin",
+                "dashboard"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Purchase",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url_web}}/purchase-web",
+              "host": [
+                "{{base_url_web}}"
+              ],
+              "path": [
+                "purchase-web"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "User Profile",
+      "item": [
+        {
+          "name": "Get User Profile & Bank",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/user/profile",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "user",
+                "profile"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Transaction History",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/user/transactions",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "user",
+                "transactions"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Merchant Services",
+      "item": [
+        {
+          "name": "Get Merchant Orders",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/merchant/orders",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "merchant",
+                "orders"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ]
+}
